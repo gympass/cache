@@ -1,0 +1,23 @@
+name: 'Cache'
+description: 'Cache artifacts like dependencies and build outputs to improve workflow execution time'
+author: 'GitHub'
+inputs:
+  paths:
+    description: 'A list of comma-separated directories to store/restore'
+  key-files:
+    description: 'A list of comma-separated values to use as a source for cache keys'
+  bundles:
+    description: 'A list of comma-separated values indicating which canned bundles to use'
+  entrypoint:
+    description: 'Override gympass/cache entrypoint'
+outputs:
+  cache-hit:
+    description: 'A boolean value to indicate an exact match was found for the primary key'
+runs:
+  using: 'node12'
+  main: 'restore/index.js'
+  post: 'save/index.js'
+  post-if: 'success()'
+branding:
+  icon: 'archive'
+  color: 'gray-dark'

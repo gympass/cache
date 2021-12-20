@@ -1,0 +1,19 @@
+{
+  "name": "cache",
+  "description": "Cache dependencies and build outputs",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Gympass",
+  "license": "MIT",
+  "main": "restore/index.js",
+  "scripts": {
+    "build": "ncc build -mo restore/ src/restore.js && ncc build -mo save/ src/save.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/exec": "^1.1.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.1"
+  }
+}
